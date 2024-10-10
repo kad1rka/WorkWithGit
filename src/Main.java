@@ -1,12 +1,7 @@
-import com.sun.tools.jconsole.JConsoleContext;
 
 import java.util.AbstractCollection;
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Scanner;
 
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
     public static void main(String[] args) {
         Account account = new Account(1155, 300000);
@@ -18,6 +13,22 @@ public class Main {
         System.out.println("Баланс после снятия: " + account.getBalance());
         account.deposit(50000);
         System.out.println("Баланс после пополнения: " + account.getBalance());
+
+        System.out.println();
+        Account accountSemen = new Account("Семен", 1233, 1100 );
+        accountSemen.setAnnualInterestRate(7.5);
+        accountSemen.deposit(500);
+        accountSemen.deposit(600);
+        accountSemen.deposit(700);
+        accountSemen.withdraw(700);
+        accountSemen.withdraw(600);
+        accountSemen.withdraw(100);
+        System.out.println("Имя: " + accountSemen.getName());
+        System.out.println("Процентная ставка: " + accountSemen.getAnnualInterestRate());
+        System.out.println("Баланс: " + accountSemen.getBalance());
+        for (Transaction item: accountSemen.transactions) {
+            System.out.println('\n'+item.getDescription());
+        }
 
         Account[] accounts = new Account[10];
         for (int i = 0; i < 10; i++) {
