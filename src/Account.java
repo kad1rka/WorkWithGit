@@ -40,21 +40,25 @@ public class Account {
         return this.dateCreated;
     }
 
-    public void withdraw(double sum) {
-        if (sum <= this.balance && sum > 0) {
-            this.balance-=sum;
+    public void withdraw(double amount) {
+        if (amount <= this.balance && amount > 0) {
+            this.balance-=amount;
             System.out.println("Снятие произведение успешно.");
         } else {
             System.out.println("На балансе недостаточно средств.");
         }
     }
 
-    public void deposit(double sum) {
-        if (sum > 0) {
-            this.balance+=sum;
+    public void deposit(double amount) {
+        if (amount > 0) {
+            this.balance+=amount;
             System.out.println("Пополнение прошло успешно.");
         } else {
             System.out.println("Сумма пополнения не может быть отрицательной.");
         }
+    }
+
+    public double getMonthlyIntereset() {
+        return this.balance * (this.annualInterestRate / 100 / 12);
     }
 }
